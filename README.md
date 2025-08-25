@@ -1,2 +1,1 @@
-# curriculo
-Meu Curriculum Vitae, desenvolvido em HTML.
+# [WebSite](https://gabrielmsilva00.github.io/curriculo/)
