@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=0.8" />
+    <title>Currículo Gabriel Maia</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #004080;
+        --primary-600: #00336a;
+        --secondary: #002040;
+        --ink: #101418;
+        --muted: #495057;
+        --bg: #ffffff;
+        --onPrimary: #f3f7ff;
+        --onPrimaryMuted: #cfe2ff;
+
+        /* Tipografia e ritmo (maior) */
+        --fs-base: 11pt;
+        --fs-xs: 10pt;
+        --fs-sm: 11pt;
+        --fs-md: 12pt;
+        --fs-lg: 13.5pt;
+        --fs-xl: 16.25pt;
+        --fs-xxl: 26.5pt;
+
+        --lh: 1.45;
+        --space-1: 1.5mm;
+        --space-2: 2mm;
+        --space-3: 3mm;
+        --space-4: 4mm;
+        --space-5: 6mm;
+        --radius: 6px;
+
+        --border-strong: 2px;
+      }
+
+      html,
+      body {
+        height: 100%;
+        background: #eef1f5;
+      }
+
+      body {
+        margin: 0;
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+          Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-variant-ligatures: contextual;
+        color: var(--ink);
+        line-height: var(--lh);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: var(--fs-base);
+        hyphens: auto;
+        orphans: 3;
+        widows: 3;
+      }
+
+      /* Folha A4 estrita */
+      #a4 {
+        box-sizing: border-box;
+        width: 210mm;
+        height: 297mm;
+        margin: 16px auto;
+        background: var(--bg);
+        display: grid;
+        grid-template-columns: 34% 66%;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        border: var(--border-strong) solid var(--primary);
+      }
+
+      /* Barra lateral */
+      .sidebar {
+        background: linear-gradient(
+          180deg,
+          var(--primary) 0%,
+          var(--secondary) 100%
+        );
+        color: var(--onPrimary);
+        padding: var(--space-4);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-5); /* mais espaçamento entre seções */
+        position: relative;
+      }
+
+      .sidebar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 2mm;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.18),
+          rgba(255, 255, 255, 0.06)
+        );
+      }
+
+      .sidebar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2mm;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.12),
+          rgba(255, 255, 255, 0.04)
+        );
+      }
+
+      .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: var(--space-3) auto var(--space-2);
+        width: 36mm;
+        height: 36mm;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22),
+          inset 0 0 0 2px rgba(255, 255, 255, 0.12);
+        overflow: hidden;
+        border-bottom: #002040 3px solid;
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 50%;
+      }
+
+      .section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+
+      .contact-list {
+        list-style: none;
+        padding: 0 var(--space-2) 0 var(--space-3);
+        margin: 0;
+        display: grid;
+        grid-auto-rows: min-content;
+        gap: 8px;
+        justify-content: center;
+      }
+
+      .contact-list li {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: var(--fs-md);
+        color: var(--onPrimary);
+      }
+
+      .contact-list a {
+        color: var(--onPrimary);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .contact-list a:hover {
+        border-bottom-color: #ffffff;
+      }
+
+      .icon {
+        width: 14px;
+        height: 14px;
+        flex: 0 0 14px;
+        fill: currentColor;
+        opacity: 0.95;
+      }
+
+      .skills {
+        padding: 0 var(--space-3);
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      /* Pílulas com alto contraste na lateral escura */
+      .pill {
+        display: inline-block;
+        font-size: var(--fs-sm);
+        font-weight: 700;
+        padding: 1.2mm 3mm;
+        border-radius: 4mm;
+        color: var(--primary);
+        background: #ffffff;
+        border: 1.5px solid #ffffff;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+        white-space: nowrap;
+      }
+
+      .edu {
+        padding: 0 var(--space-3) var(--space-2);
+        margin: 0;
+        display: grid;
+        gap: var(--space-2);
+      }
+
+      .edu-entry {
+        display: grid;
+        gap: 2px;
+      }
+
+      .edu-entry .title {
+        font-size: var(--fs-md);
+        font-weight: 700;
+        color: var(--onPrimary);
+      }
+
+      .edu-entry .meta {
+        font-size: var(--fs-sm);
+        color: var(--onPrimaryMuted);
+      }
+      .edu-entry a {
+        color: var(--onPrimary);
+      }
+
+      .sidebar a.inline {
+        color: var(--onPrimary);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+      }
+
+      .sidebar a.inline:hover {
+        border-bottom-color: #ffffff;
+      }
+
+      /* Conteúdo principal */
+      .content {
+        padding: 6mm;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-5); /* mais espaçamento entre seções */
+      }
+
+      .header .name {
+        font-size: var(--fs-xxl);
+        font-weight: 800;
+        color: var(--ink);
+        display: inline-block;
+        padding-bottom: 2mm;
+        border-bottom: 2px solid var(--primary);
+        letter-spacing: 0.2px;
+      }
+
+      .header .role {
+        font-size: var(--fs-xl);
+        color: var(--primary);
+        margin-top: var(--space-2);
+        font-weight: 700;
+      }
+
+      .header .summary {
+        font-size: var(--fs-md);
+        color: var(--muted);
+        margin-top: var(--space-2);
+      }
+
+      .kicker {
+        font-weight: 700;
+        color: var(--primary-600);
+        font-size: var(--fs-xl);
+      }
+
+      p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      small {
+        font-size: var(--fs-xs);
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 2mm 0 0 2mm;
+        padding: 0 0 0 2.5mm;
+      }
+
+      li {
+        margin: 1.2mm 0;
+        font-size: var(--fs-md);
+      }
+
+      li::marker {
+        color: var(--primary);
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0, 64, 128, 0.35);
+      }
+
+      a:hover {
+        border-bottom-color: var(--primary);
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        padding-left: 6.5mm;
+        margin-top: var(--space-2);
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 3mm;
+        top: 3mm;
+        bottom: 3mm;
+        width: 3px;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 64, 128, 0.35),
+          rgba(0, 64, 128, 0.12)
+        );
+      }
+
+      .t-item {
+        position: relative;
+        margin-bottom: var(--space-4);
+        page-break-inside: avoid;
+      }
+
+      .t-item::before {
+        content: "";
+        position: absolute;
+        left: -5mm;
+        top: 2mm;
+        width: 4mm;
+        height: 4mm;
+        border-radius: 100%;
+        border: 0.5mm solid var(--primary);
+        background: #fff;
+        box-shadow: 0 0 0 2px #fff;
+      }
+
+      .t-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+      }
+
+      .t-title {
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .t-date {
+        font-size: var(--fs-sm);
+        color: var(--muted);
+      }
+
+      .t-body {
+        margin-top: 1mm;
+      }
+
+      .compact-list {
+        margin: 1mm 0 0 2mm;
+        padding-left: 3mm;
+      }
+
+      .compact-list li {
+        margin: 0.8mm 0;
+      }
+
+      .footer {
+        text-align: right;
+        margin-top: auto;
+      }
+
+      /* Toolbar (tela) */
+      .toolbar {
+        margin: 12px auto;
+        max-width: 210mm;
+        text-align: right;
+      }
+
+      .btn {
+        font-family: inherit;
+        font-size: 12pt;
+        padding: 6px 12px;
+        background: var(--primary);
+        color: #fff;
+        border: 0;
+        border-radius: var(--radius);
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn:active {
+        transform: translateY(1px);
+      }
+      #a4.bw-mode {
+        border: 2px solid #000;
+        box-shadow: none !important;
+      }
+
+      #a4.bw-mode .sidebar {
+        background: #fff !important;
+        color: #000 !important;
+        border-right: 2px solid #000;
+      }
+
+      #a4.bw-mode .sidebar::before,
+      #a4.bw-mode .sidebar::after {
+        display: none !important;
+      }
+
+      #a4.bw-mode .pill {
+        background: #fff !important;
+        border: 1px solid #000 !important;
+        color: #000 !important;
+      }
+
+      #a4.bw-mode .edu-entry .title,
+      #a4.bw-mode .edu-entry .meta,
+      #a4.bw-mode .contact-list li,
+      #a4.bw-mode .contact-list a,
+      #a4.bw-mode .sidebar a.inline {
+        color: #000 !important;
+      }
+
+      #a4.bw-mode .header .name,
+      #a4.bw-mode .header .role,
+      #a4.bw-mode .header .summary,
+      #a4.bw-mode .kicker,
+      #a4.bw-mode p,
+      #a4.bw-mode li,
+      #a4.bw-mode small,
+      #a4.bw-mode a {
+        color: #000 !important;
+        border-bottom-color: #000 !important;
+      }
+
+      #a4.bw-mode .timeline::before {
+        background: #000 !important;
+      }
+
+      #a4.bw-mode .t-item::before {
+        border: 1px solid #000 !important;
+        background: #fff !important;
+      }
+
+      /* Impressão */
+      @media print {
+        @page {
+          size: A4 portrait;
+          margin: 0;
+        }
+        body {
+          background: #ffffff !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        body > :not(#a4) {
+          display: none !important;
+        }
+        #a4 {
+          margin: 0 !important;
+          box-shadow: none !important;
+        }
+        .toolbar {
+          display: none !important;
+        }
+      }
+    </style>
+    <script defer>
+    function toggleBW() {
+      const a4 = document.getElementById("a4");
+      a4.classList.toggle("bw-mode");
+    }
+  </script>
+  </head>
+  <body>
+    <div class="toolbar">
+      <button class="btn" onclick="window.print()">Imprimir</button>
+      <button class="btn" onclick="toggleBW()">P/B</button>
+    </div>
+
+    <div id="a4" role="document" aria-label="Currículo A4">
+      <aside class="sidebar" aria-label="Informações">
+        <figure class="avatar" aria-label="Foto de Perfil">
+          <img src="./profile.png" alt="Foto de perfil de Gabriel Maia" />
+        </figure>
+
+        <section class="section" aria-label="Contato">
+          <ul class="contact-list">
+            <li>
+              <a href="https://www.linkedin.com/in/gabrielmaia-dev/">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 
+                    2.24 5 5 5h14c2.76 0 5-2.24 
+                    5-5v-14c0-2.76-2.24-5-5-5zm-11 
+                    19h-3v-10h3v10zm-1.5-11.27c-.97 
+                    0-1.75-.79-1.75-1.76s.78-1.75 
+                    1.75-1.75 1.75.78 
+                    1.75 1.75-.78 1.76-1.75 
+                    1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 
+                    0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.36h.04c.4-.75 
+                    1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 
+                    4.59v5.59z"
+                  />
+                </svg>
+                Gabriel Maia
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/gabrielmsilva00">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .5C5.65.5.5 5.65.5 
+                    12c0 5.1 3.29 9.4 7.86 
+                    10.94.58.1.79-.25.79-.56 
+                    0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 
+                    1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 
+                    1.27 3.4.97.1-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 
+                    0-1.26.45-2.3 1.2-3.11-.12-.3-.52-1.52.11-3.17 
+                    0 0 .97-.31 3.18 1.19a11.1 11.1 0 0 1 5.8 
+                    0c2.2-1.5 3.17-1.19 3.17-1.19.63 1.65.23 2.87.11 
+                    3.17.75.81 1.2 1.85 1.2 3.11 0 4.43-2.69 
+                    5.41-5.25 5.69.42.36.8 1.08.8 2.18 
+                    0 1.57-.01 2.84-.01 3.23 0 .31.21.67.8.56A10.52 
+                    10.52 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"
+                  />
+                </svg>
+                gabrielmsilva00
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5521989197963">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M20.52 3.48A11.77 11.77 0 0 0 12 
+                    0C5.37 0 0 5.37 0 12c0 2.12.55 4.19 
+                    1.6 6.01L0 24l6.17-1.62A11.94 11.94 0 0 0 
+                    12 24c6.63 0 12-5.37 12-12 
+                    0-3.19-1.24-6.19-3.48-8.52zM12 
+                    22c-1.95 0-3.84-.52-5.5-1.5l-.39-.23-3.65.96.98-3.56-.25-.37A9.94 
+                    9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 
+                    4.48 10 10-4.48 10-10 10zm5.27-7.73c-.29-.15-1.71-.84-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.94 
+                    1.13-.17.2-.35.22-.64.07-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.29-.49.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 
+                    0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.49s1.07 2.88 
+                    1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.5 
+                    1.69.64.71.23 1.35.2 1.86.12.57-.08 1.71-.7 
+                    1.95-1.38.24-.68.24-1.26.17-1.38-.07-.12-.27-.2-.56-.35z"
+                  />
+                </svg>
+                (21) 98919-7963
+              </a>
+            </li>
+            <li>
+              <a href="mailto:gabrielmaia.silva00@gmail.com">
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 12.713l11.985-7.713v-1.5h-23.97v1.5l11.985 
+                    7.713zm0 2.574l-12-7.713v13.426h24v-13.426l-12 
+                    7.713z"
+                  />
+                </svg>
+                gabrielmaia.silva00
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section" aria-label="Conhecimentos">
+          <div class="skills" aria-label="Pílulas de conhecimentos">
+            <span class="pill">HelpDesk</span>
+            <span class="pill">Automação</span>
+            <span class="pill">Hardware</span>
+            <span class="pill">Rede</span>
+            <span class="pill">Machine Learning</span>
+            <span class="pill">Comp. Científica</span>
+            <span class="pill">Análise de Dados</span>
+            <span class="pill">Gráficos</span>
+            <span class="pill">JVM</span>
+            <span class="pill">WebDev</span>
+            <span class="pill">Git</span>
+            <span class="pill">GitHub Pages</span>
+          </div>
+        </section>
+
+        <section class="section" aria-label="Formação">
+          <div class="edu">
+            <div class="edu-entry">
+              <div class="title">
+                <a
+                  class="inline"
+                  href="https://www.alunoonline.uerj.br/autentica.php?id=fmdqFMqwY8H"
+                  >UERJ</a
+                >
+                - Eng. Elétrica
+              </div>
+              <div class="meta">
+                <ul>
+                  <li>À Distância</li>
+                  <li>2024 ⌛ Presente</li>
+                  <li>Capacitações:
+                    <ul>
+                      <li><a href="https://www.ementario.uerj.br/ementa.php?cdg_disciplina=627">Proc. de Dados</a></li>
+                      <li><a href="https://www.ementario.uerj.br/ementa.php?cdg_disciplina=10872">Redes Neurais</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <br>
+
+            <div class="edu-entry">
+              <div class="title">
+                UVA - Tecnólogo ADS
+              </div>
+              <div class="meta">
+                <ul>
+                  <li>Presencial</li>
+                  <li>2024 ⌛ Presente</li>
+                  <li>Capacitações:
+                    <ul>
+                      <li>Base de Dados</li>
+                      <li>Des. Ágil</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+      <section class="content" aria-label="Conteúdo">
+        <header class="header">
+          <div class="name">GABRIEL M. P. DA SILVA</div>
+          <div class="role">Software Developer | Suporte Técnico</div>
+          <p class="summary">
+            Desenvolvedor de software e suporte técnico em automações, sistemas, dados, redes e hardware.
+          </p>
+          <p class="summary">
+            Apaixonado por resolver problemas com tecnologia.
+          </p>
+        </header>
+
+        <section aria-label="Experiência">
+          <div class="timeline">
+            <article class="t-item" aria-label="Freelance Desenvolvedor">
+              <div class="t-head">
+                <div class="t-title">
+                  <span class="kicker">&nbsp;Freelancer</span>
+                </div>
+                <div class="t-date">Set/2024 ⌛ Atual</div>
+              </div>
+              <div class="t-body">
+                <ul class="compact-list">
+                  <li>
+                    <a href="https://github.com/gabrielmsilva00/plaintools"
+                      >PlainTools</a
+                    >
+                    <a href="https://gabrielmsilva00.github.io/PlainTools/"
+                      >(Documentação)</a
+                    >
+                    - ergonomia e praticidade na produção de código em Python.
+                  </li>
+                  <li>
+                    <a href="https://github.com/gabrielmsilva00/pureset"
+                      >PureSet</a
+                    >
+                    - conjuntos imutáveis para computação científica, processamento e análise de dados.
+                  </li>
+                  <li>
+                    <a href="https://github.com/gabrielmsilva00/MeuVitae/"
+                      >MeuVitae</a
+                    >
+                    <a href="https://gabrielmsilva00.github.io/MeuVitae/"
+                      >(WebSite)</a
+                    >
+                    - editor de currículo em formato A4 com temas personalizados.
+                  </li>
+                  <li>
+                    <a href="https://github.com/gabrielmsilva00/minifier/"
+                      >Minifier</a
+                    >
+                    <a href="https://gabrielmsilva00.github.io/minifier/"
+                      >(Website)</a
+                    >
+                    - minificação online de código em HTML, CSS e JavaScript.
+                  </li>
+                  <li>
+                    <a href="https://github.com/gabrielmsilva00/MDParser/"
+                      >MDParser</a
+                    >
+                    <a href="https://gabrielmsilva00.github.io/MDParser/"
+                      >(WebSite)</a
+                    >
+                    - editor e visualizador dinâmico de GitHub Flavored Markdown.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="t-item" aria-label="Acadêmico UERJ">
+              <div class="t-head">
+                <div class="t-title">
+                  <span class="kicker">&nbsp;Acadêmico</span>
+                </div>
+                <div class="t-date">Mar/2024 ⌛ Atual</div>
+              </div>
+              <div class="t-body">
+                <ul class="compact-list">
+                  <li>
+                    <a
+                      href="https://github.com/gabrielmsilva00/Redes-Neurais-MLP/"
+                      >Redes Neurais</a
+                    >
+                    <a
+                      href="https://gabrielmsilva00.github.io/Redes-Neurais-MLP/"
+                      >(WebSite)</a
+                    >
+                    - treinamento de redes MLP e SOM em Python com bases de dados públicos; Backend em Pandas e SciKitLearn e demonstrações gráficas em MatPlotLib.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section aria-label="Capacidades">
+          <ul class="compact-list">
+            <li><strong>Suporte Técnico | TI</strong> nas áreas de hardware, software, segurança, redes, servidores...</li>
+            <br>
+            <li><strong>Desenvolvimento de Software</strong> para uso empresarial ou comercial, automação, controles...</li>
+            <br>
+            <li><strong>Criação de Websites</strong> para propósitos empresariais de documentação, resumos de produtividade, apresentações, publicidade e branding...</li>
+            <br>
+            <li><strong>Facilidade</strong> com inglês, trabalho em equipe, diálogo, atenção às hierarquias, autonomia na resolução de problemas, bom raciocínio e muita vontade de aprender e contribuir cada dia mais!</li>
+          </ul>
+        </section>
+        <div class="footer">
+          <small>25/08/2025</small>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
